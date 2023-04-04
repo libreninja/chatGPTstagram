@@ -1,9 +1,7 @@
 This repository contains a React Native project generated in a collaboration with chatGPT. This is effictively an artifact of following the Packt Publishing course, 'The Ultimate ChatGPT Guide with React Native - Develop Mobile Apps'. The course demonstrates techniques for finding efficiencies with generative AI in a software engineering context.
 
 The project started by asking chatGPT the following question:
-```
 > Please provide the detailed steps required to build a mobile application from scratch including the most popular libraries, in a development environment with good developer ergonomics. The application should be written in a leading javascript library. The application should be an instagram clone that can display stories, profiles and story
-```
 
 Here is chatGPT's response:
 ```
