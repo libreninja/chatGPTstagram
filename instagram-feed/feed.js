@@ -1,50 +1,73 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Feather } from '@expo/vector-icons'
+import Constants from 'expo-constants';
+import Stories from './Stories';
 import data from './data';
 
+const INSTAGRAM_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/800px-Instagram_logo.svg.png?20160616034027";
+
 export default function Feed() {
+
+    function renderItem({ item, index }) {
+        if (index === 0) {
+            return (
+                <>
+                    <View style={styles.stories}>
+                        <Stories stories={data.stories} profile={data.profile} ></Stories>
+                    </View>
+                </>
+            )
+        } else {
+            return;
+        }
+    }
     return (
-        <View>
-            <View style={styles.container}>
-                <Text>{'\n'}</Text>
-                <Text>Yostagram App {'\n'}</Text>
-                <StatusBar style='auto' />
+        <SafeAreaView style={styles.container}>
+            <StatusBar style='dark' />
+            <View style={styles.header}>
+                <TouchableOpacity>
+                    <Feather name='camera' size={24} />
+                </TouchableOpacity>
+                <Image source={{ uri: INSTAGRAM_LOGO }} style={styles.logo} />
+                <TouchableOpacity>
+                    <Feather name='send' size={24} />
+                </TouchableOpacity>
             </View>
+
             <FlatList
                 data={data.articles}
-                renderItem={({ item }) => (
-                    <View style={styles.itemContainer}>
-                        <Image
-                            style={styles.image}
-                            source={item.image}
-                        />
-                        <Text>name: {item.name}</Text>
-                        <Text>likes: {item.likes}</Text>
-                        <Text>comments: {item.comments}</Text>
-                    </View>
-                )}
-                keyExtractor={(item) => item.id}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id.toString()}
                 showsVerticalScrollIndicator={false}
             />
             <StatusBar style="auto" />
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
+    header: {
+        borderBottomWidth: 1,
+        borderBottomColor: "#dbdbdb",
+        flexDirection: "row",
+        paddingHorizontal: 16,
+        height: 44,
+    },
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        padddingTime: Constants.statusBarHeight
     },
-    itemContainer: {
+    logo: {
+        flex: 1,
+        height: 30,
+        resizeMode: "contain"
+    },
+    stories: {
+        borderBottomWidth:1,
+        borderBottomColor: '#dbdbdb',
+        height: 104,
         padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: 'lightgray'
-    },
-    image: {
-        width: '100%',
-        height: 200,
+        backgroundColor: "#fafafa",
     }
 });

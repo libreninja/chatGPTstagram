@@ -22,7 +22,7 @@ const initialData = {
       {
         id: 1,
         avatar: require("../assets/instagram-feed-images/avatar.jpg"),
-        name: 'Jack Wilson',
+        name: 'Jack T. Wilson',
         image: require("../assets/instagram-feed-images/img1.jpg"),
         likes: 10,
         commentCount: 22,

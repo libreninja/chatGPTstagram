@@ -36,3 +36,8 @@ Styled Components: A library for styling React Native components.
 React Native Elements: A library of pre-built UI components for React Native.
 Keep in mind that building a mobile application from scratch can be a complex and time-consuming process. It is important to have a good understanding of the development environment and libraries you are using, as well as strong programming skills. It may also be helpful to work with a team of developers or hire a professional mobile app development company to help you build your application.
 ```
+
+Branch `chapter6` contains all of the changes up to chapter 7. The chatGPT takeaway from chapter 6 is that chatGPT can be used to:
+1. generate code/data
+2. explain what snippets of code are doing
+3. find and suggest bug fixes
